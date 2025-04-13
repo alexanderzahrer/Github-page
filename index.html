@@ -78,12 +78,13 @@
 
         /* Style for thesis entries now that .paper is removed */
         .thesis-entry {
-             margin-bottom: 1.5rem; /* Added spacing between entries */
+            margin-bottom: 1.5rem; /* Added spacing between entries */
         }
+
         .thesis-title { /* Style for thesis titles */
-             font-size: 1.2rem;
-             font-weight: bold;
-             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
 
@@ -138,16 +139,18 @@
             gap: 0.5rem 1.5rem; /* Adjusted gap for list items */
             padding-left: 0; /* Ensure no default padding */
         }
+
         #general > ul > li { /* Target list items within the interests list */
-             margin-bottom: 0.5rem; /* Maintain vertical spacing if wrapping */
+            margin-bottom: 0.5rem; /* Maintain vertical spacing if wrapping */
         }
 
         #general h2 + p + ul { /* Target the seminars list specifically */
             padding-left: 0; /* Ensure no default padding */
         }
-         #general h2 + p + ul li { /* Target list items within the seminars list */
-             margin-bottom: 0.8rem; /* Spacing between seminar items */
-         }
+
+        #general h2 + p + ul li { /* Target list items within the seminars list */
+            margin-bottom: 0.8rem; /* Spacing between seminar items */
+        }
 
 
         /* Background Video Styles */
@@ -193,9 +196,10 @@
             h2 {
                 font-size: 1.6rem;
             }
-             #general > ul { /* Adjust flex layout for smaller screens if needed */
-                 gap: 0.5rem 1rem;
-             }
+
+            #general > ul { /* Adjust flex layout for smaller screens if needed */
+                gap: 0.5rem 1rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -219,7 +223,7 @@
         <video autoplay muted loop>
             <source src="mountain-loop.mp4" type="video/mp4">
             Your browser does not support the video tag.
-            </video>
+        </video>
     </div>
     <div id="video-overlay"></div>
 
@@ -270,7 +274,7 @@
                 </div>
             </div>
 
-             <div class="thesis-entry">
+            <div class="thesis-entry">
                 <p class="thesis-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
                 <div id="bachelor-abstract" class="abstract-content">

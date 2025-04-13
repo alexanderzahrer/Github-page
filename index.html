@@ -20,6 +20,8 @@
             max-width: 800px;
             margin: 2rem auto;
             padding: 1rem;
+            position: relative; /* For positioning video */
+            z-index: 1; /* Ensure content is above video */
         }
 
         h1,
@@ -48,7 +50,7 @@
         }
 
         a {
-            color: #b34747; /* Lighter red for links */
+            color: #b34747;
             text-decoration: none;
         }
 
@@ -112,11 +114,15 @@
             border-top: 1px solid #eee;
             color: #777;
             font-size: 0.9rem;
+            position: relative;
+            z-index: 1; /* Ensure footer is above video */
         }
 
         /* Sections */
         section {
             margin-bottom: 3rem;
+            position: relative; /* For positioning video */
+            z-index: 1; /* Ensure section content is above video */
         }
 
         /* Specific to General */
@@ -128,6 +134,36 @@
 
         #general li {
             margin-bottom: 0;
+        }
+
+        /* Background Video Styles */
+        #background-video {
+            position: fixed; /* Fixed position to stay in background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Hide any overflow */
+            z-index: -1; /* Place behind all content */
+        }
+
+        #background-video video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            /* Scale and crop the video to cover the entire container */
+            object-fit: cover;
+        }
+
+        #video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Adjust opacity for text readability */
+            z-index: 0;
         }
 
         /* Adjustments for smaller screens */
@@ -155,6 +191,14 @@
 </head>
 
 <body>
+
+    <div id="background-video">
+        <video autoplay muted loop>
+            <source src="mountain-loop.mp4" type="video/mp4">
+            </video>
+    </div>
+    <div id="video-overlay"></div>
+
     <div class="container">
         <section id="general">
             <h1>Alexander Zahrer</h1>
@@ -189,7 +233,7 @@
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
                 <div id="master-abstract" class="abstract-content">
                     <p>This thesis used higher category theory to study quantum field theories via smooth bordism
-                        categories endowed with geometric data (e.g. Riemannian metrics)[cite: 3, 4].</p>
+                        categories endowed with geometric data (e.g. Riemannian metrics).</p>
                 </div>
                 <p><a href="#">[PDF]</a></p>
             </div>
@@ -199,7 +243,7 @@
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
                 <div id="bachelor-abstract" class="abstract-content">
                     <p>This thesis delved into the theory of Banach and $C^{*}$ -algebras, including the Gel'fand
-                        transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems[cite: 5].</p>
+                        transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems.</p>
                 </div>
                 <p><a href="#">[PDF]</a></p>
             </div>

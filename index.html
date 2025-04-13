@@ -223,6 +223,25 @@
             display: none;
         }
 
+        /* New styles for the about section with picture */
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .profile-picture {
+            width: 180px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 0.5rem;
@@ -242,6 +261,16 @@
 
             #general > ul {
                 gap: 0.5rem 1rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .profile-picture {
+                width: 150px;
             }
         }
     </style>
@@ -291,14 +320,19 @@
             </p>
             <section class="about">
                 <h2>About Me</h2>
-                <p>My interests revolve around:</p>
-                <ul>
-                    <li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a></li>
-                    <li><a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a></li>
-                    <li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived Algebraic Geometry</a></li>
-                    <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
-                    <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
-                </ul>
+                <div class="about-container">
+                    <div class="about-content">
+                        <p>My interests revolve around:</p>
+                        <ul>
+                            <li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a></li>
+                            <li><a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a></li>
+                            <li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived Algebraic Geometry</a></li>
+                            <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
+                            <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
+                        </ul>
+                    </div>
+                    <img src="alex.png" alt="Alexander Zahrer" class="profile-picture">
+                </div>
             </section>
 
             <h2>Seminars</h2>
@@ -356,7 +390,6 @@
         </section>
         
         <footer>
-            <!-- Footer content here if needed -->
             <p>&copy; 2025 Alexander Zahrer</p>
         </footer>
     </div>

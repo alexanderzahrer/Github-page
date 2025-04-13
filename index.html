@@ -18,10 +18,9 @@
 
         .container {
             max-width: 800px;
-            margin: 2rem auto;
+            margin: 0 auto;
             padding: 1rem;
             position: relative;
-            z-index: 1;
         }
 
         h1,
@@ -67,6 +66,42 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Header with Video */
+        header {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+
+        .header-video {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .header-video video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+
+        /* Rest of your styles */
         .thesis-entry {
             margin-bottom: 1.5rem;
         }
@@ -144,14 +179,10 @@
             border-top: 1px solid #eee;
             color: #777;
             font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
         }
 
         section {
             margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
         }
 
         #general > ul {
@@ -171,34 +202,6 @@
 
         #general h2 + p + ul li {
             margin-bottom: 0.8rem;
-        }
-
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        #background-video video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-        }
-
-        #video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            z-index: 0;
         }
 
         .toggle-notes {
@@ -231,6 +234,10 @@
 
             h2 {
                 font-size: 1.6rem;
+            }
+
+            header {
+                height: 200px;
             }
 
             #general > ul {
@@ -266,13 +273,16 @@
 </head>
 
 <body>
-    <div id="background-video">
-        <video autoplay muted loop>
-            <source src="lava2 (1) (1).mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div id="video-overlay"></div>
+    <header>
+        <div class="header-video">
+            <video autoplay muted loop>
+                <source src="lava2 (1) (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+    
     <div class="container">
         <section id="general">
             <h1>Alexander Zahrer</h1>
@@ -364,7 +374,6 @@
                 <div class="download-section">
                     <h3>Analysis</h3>
                     <div class="notes-category">
-                        </a>
                         <a href="PDEs_Exercise43.pdf" class="file-link" download>
                             <i class="fas fa-file-pdf"></i> PDE Exercise 43 (PDEs_Exercise43.pdf)
                         </a>

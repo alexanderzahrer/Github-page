@@ -6,14 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexander Zahrer - Mathematician</title>
     <style>
+        /* General Styles  */
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Lato', sans-serif; /* A clean, modern font like on the example site */
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+            margin: 0;
+            padding: 0;
             background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #222;
+            font-weight: 400; /* Lighter font weight */
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Larger main heading */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
         }
 
         a {
@@ -25,100 +56,94 @@
             text-decoration: underline;
         }
 
-        h1,
-        h2,
-        h3 {
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            line-height: 1.25;
-            color: #222;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 0.5em;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.4em;
-        }
-
-        h3 {
-            font-size: 1.4em;
-        }
-
         ul {
-            padding-left: 2em;
-            list-style-type: square;
+            list-style: none; /* Remove default bullets */
+            padding-left: 0;
         }
 
         li {
-            margin-bottom: 0.7em;
-        }
-
-        .paper {
-            margin-bottom: 1.5rem;
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .paper-title {
-            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
+        /* Paper Style  */
+        .paper {
+            background-color: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
         }
 
-        section {
-            margin-bottom: 2.5rem;
+        .paper-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
-        code {
-            font-family: 'Courier New', Courier, monospace;
+        /* Abstract Toggle  */
+        .abstract-toggle {
             background-color: #f0f0f0;
-            padding: 0.2em 0.4em;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
             border-radius: 3px;
+            margin-top: 0.5rem;
         }
 
-        footer {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
+        .abstract-toggle:hover {
+            background-color: #e0e0e0;
         }
 
         .abstract-content {
             display: none;
-            margin-top: 0.5em;
-            padding: 0.5em;
-            background-color: #f0f0f0;
-            border-left: 3px solid #ccc;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background-color: #fafafa;
+            border-left: 3px solid #ddd;
         }
 
-        .abstract-toggle {
-            background-color: #eee;
-            border: none;
-            padding: 0.5em 1em;
-            cursor: pointer;
-            margin-top: 0.5em;
+        /* Footer  */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9rem;
         }
 
-        .abstract-toggle:hover {
-            background-color: #ddd;
+        /* Sections  */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        /* Specific to Interests  */
+        #about ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem; /* Space between items */
+        }
+
+        #about li {
+            margin-bottom: 0; /* Reset list item margin */
+        }
+
+        /* Adjustments for smaller screens  */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <script>
         function toggleAbstract(id) {
             var abstract = document.getElementById(id);
@@ -135,19 +160,21 @@
     <div class="container">
         <section id="about">
             <h1>Alexander Zahrer</h1>
-            <p>I am a mathematician from Austria. My academic interests revolve around
-            <ul>
-<li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a> and <a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a> [cite: 6, 7]</li>
-<li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived/Spectral Algebraic Geometry</a> [cite: 6, 7]</li>
-<li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a> [cite: 6, 7]</li>
-<li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a> [cite: 6, 7]</li>
-            </ul>
-            </p>
+            <p>Mathematician</p>
             <p>
-                <strong>Email:</strong> alexander.zahrer(at)proton.me<br>
+                <strong>Email:</strong> alexander.zahrer@proton.me<br>
+                <strong>Links:</strong>
+                <a href="sites.google.com/view/alexanderzahrer">Website</a>
             </p>
 
-
+            <h2>Research Interests</h2>
+            <ul>
+                <li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a></li>
+                <li><a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a></li>
+                <li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived/Spectral Algebraic Geometry</a></li>
+                <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
+                <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
+            </ul>
 
             <h2>Seminars</h2>
             <ul>
@@ -159,23 +186,23 @@
         <section id="writings">
             <h2>Writings</h2>
             <div class="paper">
-                <p class="paper-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis [cite: 3]</p>
+                <p class="paper-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show Abstract</button>
                 <div id="master-abstract" class="abstract-content">
                     <p>This thesis used higher category theory to study quantum field theories via smooth bordism
-                        categories endowed with geometric data (e.g. Riemannian metrics)[cite: 3]. The main references for this thesis
-                        were the papers arXiv:2111.01095 and arXiv:2011.01208. [cite: 4]</p>
+                        categories endowed with geometric data (e.g. Riemannian metrics). The main references for this thesis
+                        were the papers arXiv:2111.01095 and arXiv:2011.01208.</p>
                 </div>
                 <p><a href="#">[PDF]</a></p>
             </div>
 
             <div class="paper">
-                <p class="paper-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras [cite: 5]</p>
+                <p class="paper-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show Abstract</button>
                 <div id="bachelor-abstract" class="abstract-content">
                     <p>This thesis delved into the theory of Banach and $C^{*}$ -algebras, including the Gel'fand
                         transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems, which represent
-                        $C^{*}$ -algebras as function algebras or operator algebras on Hilbert spaces[cite: 5].</p>
+                        $C^{*}$ -algebras as function algebras or operator algebras on Hilbert spaces.</p>
                 </div>
                 <p><a href="#">[PDF]</a></p>
             </div>
@@ -193,17 +220,17 @@
         <section id="teaching">
             <h2>Teaching</h2>
 
-            <h3>Teaching Assistant, University of Graz [cite: 2, 6]</h3>
+            <h3>Teaching Assistant, University of Graz</h3>
             <ul>
-                <li>Introduction to Algebra (Mar 2024 - Jan 2025) [cite: 6]</li>
-                <li>Elementary Geometry [cite: 6]</li>
-                <li>Algebra [cite: 6]</li>
-                <li>Introduction to University Mathematics [cite: 6]</li>
+                <li>Introduction to Algebra (Mar 2024 - Jan 2025)</li>
+                <li>Elementary Geometry</li>
+                <li>Algebra</li>
+                <li>Introduction to University Mathematics</li>
             </ul>
 
-            <h3>Tutor, University of Vienna [cite: 6]</h3>
+            <h3>Tutor, University of Vienna</h3>
             <ul>
-                <li>MMF: Tutoring for freshman students (Oct 2021 - Feb 2022) [cite: 6]</li>
+                <li>MMF: Tutoring for freshman students (Oct 2021 - Feb 2022)</li>
             </ul>
         </section>
 
@@ -222,7 +249,7 @@
         </section>
 
         <footer>
-            <p>© 2025 Alexander Zahrer | Last updated: April 2025</p>
+            <p>© 2025 Alexander Zahrer</p>
         </footer>
     </div>
 </body>

@@ -20,8 +20,8 @@
             max-width: 800px;
             margin: 2rem auto;
             padding: 1rem;
-            position: relative; /* For positioning video */
-            z-index: 1; /* Ensure content is above video */
+            position: relative;
+            z-index: 1;
         }
 
         h1,
@@ -64,31 +64,19 @@
         }
 
         li {
-            margin-bottom: 0.5rem; /* Default spacing for li */
+            margin-bottom: 0.5rem;
         }
 
-        /* Paper Style (kept for potential other uses, but removed from theses) */
-        .paper {
-            background-color: #fff;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Style for thesis entries now that .paper is removed */
         .thesis-entry {
-            margin-bottom: 1.5rem; /* Added spacing between entries */
+            margin-bottom: 1.5rem;
         }
 
-        .thesis-title { /* Style for thesis titles */
+        .thesis-title {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-
-        /* Abstract Toggle */
         .abstract-toggle {
             background-color: transparent;
             border: none;
@@ -105,15 +93,14 @@
         }
 
         .abstract-content {
-            display: none; /* Initially hidden */
+            display: none;
             margin-top: 0.5rem;
             padding: 0.5rem;
             background-color: #fafafa;
             border-left: 3px solid #ddd;
-            text-align: justify; /* Justify abstract text */
+            text-align: justify;
         }
 
-        /* Download links */
         .download-section {
             margin-bottom: 2rem;
         }
@@ -141,7 +128,6 @@
             color: #b34747;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -150,46 +136,42 @@
             color: #777;
             font-size: 0.9rem;
             position: relative;
-            z-index: 1; /* Ensure footer is above video */
+            z-index: 1;
         }
 
-        /* Sections */
         section {
             margin-bottom: 3rem;
-            position: relative; /* For positioning video */
-            z-index: 1; /* Ensure section content is above video */
+            position: relative;
+            z-index: 1;
         }
 
-        /* Specific styling for lists within #general section */
-        #general > ul { /* Target the list of interests */
+        #general > ul {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem 1.5rem; /* Adjusted gap for list items */
-            padding-left: 0; /* Ensure no default padding */
+            gap: 0.5rem 1.5rem;
+            padding-left: 0;
         }
 
-        #general > ul > li { /* Target list items within the interests list */
-            margin-bottom: 0.5rem; /* Maintain vertical spacing if wrapping */
+        #general > ul > li {
+            margin-bottom: 0.5rem;
         }
 
-        #general h2 + p + ul { /* Target the seminars list specifically */
-            padding-left: 0; /* Ensure no default padding */
+        #general h2 + p + ul {
+            padding-left: 0;
         }
 
-        #general h2 + p + ul li { /* Target list items within the seminars list */
-            margin-bottom: 0.8rem; /* Spacing between seminar items */
+        #general h2 + p + ul li {
+            margin-bottom: 0.8rem;
         }
 
-
-        /* Background Video Styles */
         #background-video {
-            position: fixed; /* Fixed position to stay in background */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Hide any overflow */
-            z-index: -1; /* Place behind all content */
+            overflow: hidden;
+            z-index: -1;
         }
 
         #background-video video {
@@ -197,7 +179,6 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            /* Scale and crop the video to cover the entire container */
             object-fit: cover;
         }
 
@@ -207,11 +188,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.8); /* Adjust opacity for text readability */
+            background: rgba(255, 255, 255, 0.8);
             z-index: 0;
         }
 
-        /* Adjustments for smaller screens */
         @media (max-width: 600px) {
             .container {
                 padding: 0.5rem;
@@ -225,18 +205,20 @@
                 font-size: 1.6rem;
             }
 
-            #general > ul { /* Adjust flex layout for smaller screens if needed */
+            #general > ul {
                 gap: 0.5rem 1rem;
             }
+        }
+
+        #informal-notes-content {
+            display: none; /* Initially hidden */
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script>
-        // Updated function to fix the double-click issue
         function toggleAbstract(id) {
             var abstract = document.getElementById(id);
-            // If it's currently 'block', hide it. Otherwise (it's 'none' or unset by CSS), show it.
             if (abstract.style.display === "block") {
                 abstract.style.display = "none";
             } else {
@@ -244,20 +226,18 @@
             }
         }
 
-        // Toggle visibility of subsections
-        function toggleSubsection(id) {
-            var subsection = document.getElementById(id);
-            if (subsection.style.display === "block") {
-                subsection.style.display = "none";
+        function toggleInformalNotes() {
+            var notesContent = document.getElementById('informal-notes-content');
+            if (notesContent.style.display === "block") {
+                notesContent.style.display = "none";
             } else {
-                subsection.style.display = "block";
+                notesContent.style.display = "block";
             }
         }
     </script>
 </head>
 
 <body>
-
     <div id="background-video">
         <video autoplay muted loop>
             <source src="mountain-loop.mp4" type="video/mp4">
@@ -265,14 +245,12 @@
         </video>
     </div>
     <div id="video-overlay"></div>
-
     <div class="container">
         <section id="general">
             <h1>Alexander Zahrer</h1>
             <p>
                 <strong>Email:</strong> alexander.zahrer(at)proton.me
             </p>
-
             <h2>About Me</h2>
             <p>I am a mathematician from Austria. My academic interests revolve around:</p>
             <ul>
@@ -282,7 +260,6 @@
                 <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
             </ul>
-
             <h2>Seminars</h2>
             <p>Two friends of mine (Lucy Grossmann and Marcus Nicolas) and I enjoy organizing seminars on subjects we find particularly interesting. The following seminars have taken place or are currently ongoing:</p>
             <ul>
@@ -299,10 +276,8 @@
             </ul>
             <p>If you share these interests or have questions about the seminars, please don't hesitate to drop me an email.</p>
         </section>
-
         <section id="writings">
             <h2>Writings</h2>
-
             <div class="thesis-entry">
                 <p class="thesis-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
@@ -312,7 +287,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="thesis-entry">
                 <p class="thesis-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
@@ -323,93 +297,90 @@
                 </div>
             </div>
         </section>
-
         <section id="informal-notes">
             <h2>Informal Notes</h2>
-            <p>Below are some of my informal notes on various mathematical topics:</p>
-
-            <div class="download-section">
-                <h3>Geometry and Physics</h3>
-                <div class="notes-category">
-                    <a href="maths/Notes/GR2.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> General Relativity Notes (GR2.pdf)
-                    </a>
-                    <a href="maths/Notes/Ricci_Flow.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Ricci Flow (Ricci_Flow.pdf)
-                    </a>
-                    <a href="maths/Notes/QFT (3).pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Quantum Field Theory (QFT (3).pdf)
-                    </a>
+            <button onclick="toggleInformalNotes()">See More</button>
+            <div id="informal-notes-content">
+                <p>Below are some of my informal notes on various mathematical topics:</p>
+                <div class="download-section">
+                    <h3>Geometry and Physics</h3>
+                    <div class="notes-category">
+                        <a href="maths/Notes/GR2.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> General Relativity Notes (GR2.pdf)
+                        </a>
+                        <a href="maths/Notes/Ricci_Flow.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Ricci Flow (Ricci_Flow.pdf)
+                        </a>
+                        <a href="maths/Notes/QFT (3).pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Quantum Field Theory (QFT (3).pdf)
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="download-section">
-                <h3>Homotopy Coherent Mathematics</h3>
-                <div class="notes-category">
-                    <a href="maths/Notes/NotesHA (1).pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Notes on Higher Algebra (NotesHA (1).pdf)
-                    </a>
+                <div class="download-section">
+                    <h3>Homotopy Coherent Mathematics</h3>
+                    <div class="notes-category">
+                        <a href="maths/Notes/NotesHA (1).pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Notes on Higher Algebra (NotesHA (1).pdf)
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="download-section">
-                <h3>Analysis</h3>
-                <div class="notes-category">
-                    <a href="maths/Notes/PDE_44_47_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 44-47 (PDE_44_47_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_48_51_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 48-51 (PDE_48_51_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_40_43_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 40-43 (PDE_40_43_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_36_39_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 36-39 (PDE_36_39_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_32_35_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 32-35 (PDE_32_35_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_28_31_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 28-31 (PDE_28_31_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_21_27_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 21-27 (PDE_21_27_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDE_17_20_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Notes 17-20 (PDE_17_20_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/PDEs_Exercise43.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> PDE Exercise 43 (PDEs_Exercise43.pdf)
-                    </a>
-                    <a href="maths/Notes/VDSP_finalPaper_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> VDSP Final Paper (VDSP_finalPaper_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/Locally_Convex_Spaces.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Locally Convex Spaces (Locally_Convex_Spaces.pdf)
-                    </a>
-                    <a href="maths/Notes/Zahrer_AusarbeitungCxAnalysis_finalvs.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Complex Analysis (Zahrer_AusarbeitungCxAnalysis_finalvs.pdf)
-                    </a>
+                <div class="download-section">
+                    <h3>Analysis</h3>
+                    <div class="notes-category">
+                        <a href="maths/Notes/PDE_44_47_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 44-47 (PDE_44_47_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_48_51_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 48-51 (PDE_48_51_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_40_43_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 40-43 (PDE_40_43_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_36_39_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 36-39 (PDE_36_39_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_32_35_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 32-35 (PDE_32_35_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_28_31_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 28-31 (PDE_28_31_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_21_27_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 21-27 (PDE_21_27_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDE_17_20_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Notes 17-20 (PDE_17_20_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/PDEs_Exercise43.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> PDE Exercise 43 (PDEs_Exercise43.pdf)
+                        </a>
+                        <a href="maths/Notes/VDSP_finalPaper_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> VDSP Final Paper (VDSP_finalPaper_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/Locally_Convex_Spaces.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Locally Convex Spaces (Locally_Convex_Spaces.pdf)
+                        </a>
+                        <a href="maths/Notes/Zahrer_AusarbeitungCxAnalysis_finalvs.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Complex Analysis (Zahrer_AusarbeitungCxAnalysis_finalvs.pdf)
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="download-section">
-                <h3>Logic</h3>
-                <div class="notes-category">
-                    <a href="maths/Notes/Logic_Task1_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Logic Task 1 (Logic_Task1_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/Logic_Task2_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Logic Task 2 (Logic_Task2_Zahrer.pdf)
-                    </a>
-                    <a href="maths/Notes/Logic_Task3_Zahrer.pdf" class="file-link" download>
-                        <i class="fas fa-file-pdf"></i> Logic Task 3 (Logic_Task3_Zahrer.pdf)
-                    </a>
+                <div class="download-section">
+                    <h3>Logic</h3>
+                    <div class="notes-category">
+                        <a href="maths/Notes/Logic_Task1_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Logic Task 1 (Logic_Task1_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/Logic_Task2_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Logic Task 2 (Logic_Task2_Zahrer.pdf)
+                        </a>
+                        <a href="maths/Notes/Logic_Task3_Zahrer.pdf" class="file-link" download>
+                            <i class="fas fa-file-pdf"></i> Logic Task 3 (Logic_Task3_Zahrer.pdf)
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-
         <footer>
             <p>© 2025 Alexander Zahrer</p>
         </footer>

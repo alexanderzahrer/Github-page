@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexander Zahrer - Mathematician</title>
     <style>
-        /* General Styles  */
+        /* General Styles */
         body {
-            font-family: 'Lato', sans-serif; /* A clean, modern font like on the example site */
+            font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #444; /* Slightly darker than before */
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
@@ -25,14 +25,14 @@
         h1,
         h2,
         h3 {
-            color: #222;
-            font-weight: 400; /* Lighter font weight */
+            color: darkred; /* Changed to dark red */
+            font-weight: 400;
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.5rem; /* Larger main heading */
+            font-size: 2.5rem;
             border-bottom: 2px solid #ddd;
             padding-bottom: 0.5rem;
         }
@@ -57,7 +57,7 @@
         }
 
         ul {
-            list-style: none; /* Remove default bullets */
+            list-style: none;
             padding-left: 0;
         }
 
@@ -65,13 +65,13 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Paper Style  */
+        /* Paper Style */
         .paper {
             background-color: #fff;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         .paper-title {
@@ -80,18 +80,20 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Abstract Toggle  */
+        /* Abstract Toggle */
         .abstract-toggle {
-            background-color: #f0f0f0;
-            border: none;
-            padding: 0.5rem 1rem;
+            background-color: transparent; /* Removed gray background */
+            border: none; /* Removed border */
+            padding: 0; /* Adjusted padding */
             cursor: pointer;
             border-radius: 3px;
             margin-top: 0.5rem;
+            color: #007bff; /* Link color */
+            text-decoration: underline; /* Underline */
         }
 
         .abstract-toggle:hover {
-            background-color: #e0e0e0;
+            color: #0056b3; /* Darker blue on hover */
         }
 
         .abstract-content {
@@ -102,7 +104,7 @@
             border-left: 3px solid #ddd;
         }
 
-        /* Footer  */
+        /* Footer */
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -112,23 +114,23 @@
             font-size: 0.9rem;
         }
 
-        /* Sections  */
+        /* Sections */
         section {
             margin-bottom: 3rem;
         }
 
-        /* Specific to Interests  */
+        /* Specific to Interests */
         #about ul {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 2rem; /* Space between items */
+            gap: 1rem 2rem;
         }
 
         #about li {
-            margin-bottom: 0; /* Reset list item margin */
+            margin-bottom: 0;
         }
 
-        /* Adjustments for smaller screens  */
+        /* Adjustments for smaller screens */
         @media (max-width: 600px) {
             .container {
                 padding: 0.5rem;
@@ -147,11 +149,7 @@
     <script>
         function toggleAbstract(id) {
             var abstract = document.getElementById(id);
-            if (abstract.style.display === "none") {
-                abstract.style.display = "block";
-            } else {
-                abstract.style.display = "none";
-            }
+            abstract.style.display = abstract.style.display === "none" ? "block" : "none";
         }
     </script>
 </head>
@@ -187,7 +185,7 @@
             <h2>Writings</h2>
             <div class="paper">
                 <p class="paper-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
-                <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show Abstract</button>
+                <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
                 <div id="master-abstract" class="abstract-content">
                     <p>This thesis used higher category theory to study quantum field theories via smooth bordism
                         categories endowed with geometric data (e.g. Riemannian metrics). The main references for this thesis
@@ -198,7 +196,7 @@
 
             <div class="paper">
                 <p class="paper-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
-                <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show Abstract</button>
+                <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
                 <div id="bachelor-abstract" class="abstract-content">
                     <p>This thesis delved into the theory of Banach and $C^{*}$ -algebras, including the Gel'fand
                         transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems, which represent

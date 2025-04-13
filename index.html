@@ -109,6 +109,7 @@
             padding: 0.5rem;
             background-color: #fafafa;
             border-left: 3px solid #ddd;
+            text-align: justify; /* Justify abstract text */
         }
 
         /* Footer */
@@ -141,10 +142,10 @@
              margin-bottom: 0.5rem; /* Maintain vertical spacing if wrapping */
         }
 
-        #general h2 + ul { /* Target the seminars list */
+        #general h2 + p + ul { /* Target the seminars list specifically */
             padding-left: 0; /* Ensure no default padding */
         }
-         #general h2 + ul li { /* Target list items within the seminars list */
+         #general h2 + p + ul li { /* Target list items within the seminars list */
              margin-bottom: 0.8rem; /* Spacing between seminar items */
          }
 
@@ -192,7 +193,7 @@
             h2 {
                 font-size: 1.6rem;
             }
-             #general ul { /* Adjust flex layout for smaller screens if needed */
+             #general > ul { /* Adjust flex layout for smaller screens if needed */
                  gap: 0.5rem 1rem;
              }
         }
@@ -226,34 +227,35 @@
         <section id="general">
             <h1>Alexander Zahrer</h1>
             <p>
-                <strong>Email:</strong> alexander.zahrer@proton.me<br>
-                <strong>Links:</strong>
-                <a href="sites.google.com/view/alexanderzahrer">Website</a>
+                <strong>Email:</strong> alexander.zahrer(at)proton.me
             </p>
 
-            <h2>About Me</h2> <p>I am a mathematician from Austria. My academic interests revolve around:</p>
+            <h2>About Me</h2>
+            <p>I am a mathematician from Austria. My academic interests revolve around:</p>
             <ul>
                 <li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a></li>
-                <li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived/Spectral Algebraic Geometry</a></li>
+                <li><a href="https://ncatlab.org/nlab/show/derived+algebraic+geometry">Derived Algebraic Geometry</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
             </ul>
+
             <h2>Seminars</h2>
             <p>Two friends of mine (Lucy Grossmann and Marcus Nicolas) and I enjoy organizing seminars on subjects we find particularly interesting. The following seminars have taken place or are currently ongoing:</p>
             <ul>
                 <li>
-                    <strong>Synthetic Seminar:</strong> A reading seminar focused on the upcoming book
+                    <strong>Synthetic Seminar:</strong> (October 2024 - March 2025) A reading seminar focused on the upcoming book
                     <a href="https://drive.google.com/file/d/1lKaq7watGGl3xvjqw9qHjm6SDPFJ2-0o/view?usp=sharing" target="_blank" rel="noopener noreferrer">Formalization of Higher Categories</a>
-                    by Denis-Charles Cisinski, Jakob Maximilian Cnossen, et al.
+                    by Denis-Charles Cisinski and Jakob Maximilian Cnossen.
                 </li>
                 <li>
-                    <strong>Derived Seminar:</strong> A seminar following the book
+                    <strong>Derived Seminar:</strong> (April 2025 - ongoing) A seminar following the book
                     <a href="https://people.mpim-bonn.mpg.de/gaitsgde/Book/" target="_blank" rel="noopener noreferrer">A Study in Derived Algebraic Geometry</a>
                     by Dennis Gaitsgory and Nick Rozenblyum.
                 </li>
             </ul>
-             </section>
+            <p>If you share these interests or have questions about the seminars, please don't hesitate to drop me an email.</p>
+        </section>
 
         <section id="writings">
             <h2>Writings</h2>
@@ -262,25 +264,27 @@
                 <p class="thesis-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
                 <div id="master-abstract" class="abstract-content">
-                    <p>This thesis used higher category theory to study quantum field theories via smooth bordism
-                        categories endowed with geometric data (e.g. Riemannian metrics).</p>
+                    <p>
+                        The best gauge to determine how good a physical theory really is, is by looking at the predictions the theory provides and comparing the resulting numbers with real-world experiments. With regards to this measure, Quantum Field Theory (QFT) is probably the best physical theory there is to this date. Yet, a fully general mathematically rigorous formulation of (non-topological) QFT is missing. In this thesis we will study the functorial approach to QFT. More specifically, we will study the specific approach taken in arXiv:2011.01208 and arXiv:2111.01095 . In particular, arXiv:2111.01095 provides a classification theorem for smooth spaces of QFTs, referred to as the geometric cobordism hypothesis. The geometric cobordism hypothesis is a generalization of the topological cobordism hypothesis, which can be traced back to Baez and Dolan (1995), and was later rigorously formulated by Lurie in arXiv:0905.0465 . This work aims to accomplish two goals. The first of these is to provide a self-contained introduction to the somewhat intimidating realm of smooth functorial field theory. This is why the first six chapters of this thesis are devoted to the study of notions like simplicial homotopy theory, enriched category theory, model categories, &infin;-sheaves, &infin;-categories etc. The only prerequisites to be had in order to be able to follow the material is a good understanding of (ordinary) category theory (algebraic topology is helpful, but not needed). The second goal of this thesis is to provide a better understanding of the construction of smooth bordism &infin;-categories endowed with geometric structures as defined in arXiv:2011.01208. This is done by first providing the rigorous construction of these objects, and by then looking at some low-dimensional examples thereof. With that in hand, a smooth field theory with some prefixed geometric structure should then just be an &infin;-functor from the given smooth bordism &infin;-category to some &infin;-category of values. From there, we will consider smooth spaces of field theories with prefixed geometry and explain the geometric cobordism hypothesis, which, roughly put, states that such a space of field theories is equivalent to “morphisms” from the given geometric structure to the maximal &infin;-subgroupoid of fully dualisable objects of the target &infin;-category.
+                    </p>
                 </div>
-                </div>
+            </div>
 
-            <div class="thesis-entry">
+             <div class="thesis-entry">
                 <p class="thesis-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
                 <div id="bachelor-abstract" class="abstract-content">
-                    <p>This thesis delved into the theory of Banach and $C^{*}$ -algebras, including the Gel'fand
-                        transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems.</p>
+                    <p>
+                        Mathematical theories often, if not always, are motivated by looking closely at the real world. The first such example of a mathematical theory that should come to mind is, of course, calculus. Just as calculus was derived for the sole purpose of making sense of motion, acceleration, or more generally change, that is, calculus was invented in order to supply classical mechanics with the necessary mathematical tools, functional analysis was born from the depths of hell (or so some people might think) so as to furnish the quantum theorists with the long sought tools and give rigorous descriptions for quantum mechanics in general. One such description is the algebraic formulation of quantum mechanics, that is, the C*-algebraic approach. In this thesis we will derive the basics of the theory of C*-operator algebras. We will, however, not get into the physical theory that is quantum mechanics, as this work is intended to be purely mathematical. If one is interested in applying the theory to describe quantum mechanics see [11]. We will begin our journey by forging a suitable topology, called the weak*-topology, so as to lay the groundwork for Banach algebras. The theory of Banach algebras will be discussed in general at first, but then we will focus on the abelian case and introduce the celebrated Gel’fand transform. After having done so, we will devote ourselves to the study of C*-algebras and we will prove the first Gel’fand Naimark theorem, which roughly states that abelian C*-algebras are nothing more than continuous functions (that is up to *-isomorphism). Our journey then leads us to the derivation of the CFC (=Continuous Functional Calculus) in the setting of C*-algebras, an immensely important tool in functional analysis, especially when applied to spectral theory. By means of the CFC we are then able to give meaning to the notion of positivity of elements in a C*-algebra. After having done so, we will concern ourselves with certain linear functionals called states, so as to be able to derive one of the most iconic statements of the field; the GNS-construction (Gel’fand-Naimark-Segal). The GNS construction will enable us to prove the second Gel’fand-Naimark representation theorem, which roughly states that every C*-algebra is, up to *-isomorphism, just a subset of bounded linear operators on some Hilbert space, which will conclude our journey.
+                    </p>
                 </div>
-                </div>
+            </div>
 
             <p><a href="writings.html">More Writings</a></p>
         </section>
 
         <footer>
-             <p>© 2025 Alexander Zahrer</p>
+            <p>© 2025 Alexander Zahrer</p>
         </footer>
     </div>
 </body>

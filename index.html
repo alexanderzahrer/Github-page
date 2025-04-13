@@ -64,7 +64,7 @@
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5rem; /* Default spacing for li */
         }
 
         /* Paper Style (kept for potential other uses, but removed from theses) */
@@ -76,17 +76,11 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .paper-title { /* Renamed for clarity, though not strictly necessary */
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
         /* Style for thesis entries now that .paper is removed */
         .thesis-entry {
              margin-bottom: 1.5rem; /* Added spacing between entries */
         }
-        .thesis-title { /* Replaced .paper-title specific to theses */
+        .thesis-title { /* Style for thesis titles */
              font-size: 1.2rem;
              font-weight: bold;
              margin-bottom: 0.5rem;
@@ -136,16 +130,24 @@
             z-index: 1; /* Ensure section content is above video */
         }
 
-        /* Specific to General */
-        #general ul {
+        /* Specific styling for lists within #general section */
+        #general > ul { /* Target the list of interests */
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 2rem;
+            gap: 0.5rem 1.5rem; /* Adjusted gap for list items */
+            padding-left: 0; /* Ensure no default padding */
+        }
+        #general > ul > li { /* Target list items within the interests list */
+             margin-bottom: 0.5rem; /* Maintain vertical spacing if wrapping */
         }
 
-        #general li {
-            margin-bottom: 0;
+        #general h2 + ul { /* Target the seminars list */
+            padding-left: 0; /* Ensure no default padding */
         }
+         #general h2 + ul li { /* Target list items within the seminars list */
+             margin-bottom: 0.8rem; /* Spacing between seminar items */
+         }
+
 
         /* Background Video Styles */
         #background-video {
@@ -190,6 +192,9 @@
             h2 {
                 font-size: 1.6rem;
             }
+             #general ul { /* Adjust flex layout for smaller screens if needed */
+                 gap: 0.5rem 1rem;
+             }
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -220,15 +225,13 @@
     <div class="container">
         <section id="general">
             <h1>Alexander Zahrer</h1>
-            <p>Mathematician from Austria</p>
             <p>
                 <strong>Email:</strong> alexander.zahrer@proton.me<br>
                 <strong>Links:</strong>
                 <a href="sites.google.com/view/alexanderzahrer">Website</a>
             </p>
 
-            <h2>General</h2>
-            <p>My academic interests revolve around:</p>
+            <h2>About Me</h2> <p>I am a mathematician from Austria. My academic interests revolve around:</p>
             <ul>
                 <li><a href="https://ncatlab.org/nlab/show/higher+category+theory">Higher Category Theory</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/higher+algebra">Higher Algebra</a></li>
@@ -236,18 +239,26 @@
                 <li><a href="https://ncatlab.org/nlab/show/stable+homotopy+theory">Stable Homotopy Theory</a></li>
                 <li><a href="https://ncatlab.org/nlab/show/functorial+quantum+field+theory">Functorial Field Theories</a></li>
             </ul>
-
             <h2>Seminars</h2>
+            <p>Two friends of mine (Lucy Grossmann and Marcus Nicolas) and I enjoy organizing seminars on subjects we find particularly interesting. The following seminars have taken place or are currently ongoing:</p>
             <ul>
-                <li><strong>Formalization of Higher Category Theory (Cisinski, Cnossen, et al.):</strong> Organized and led a seminar focusing on the formalization of higher category theory.</li>
-                <li><strong>Derived Algebraic Geometry:</strong> Currently organizing a seminar on derived algebraic geometry.</li>
+                <li>
+                    <strong>Synthetic Seminar:</strong> A reading seminar focused on the upcoming book
+                    <a href="https://drive.google.com/file/d/1lKaq7watGGl3xvjqw9qHjm6SDPFJ2-0o/view?usp=sharing" target="_blank" rel="noopener noreferrer">Formalization of Higher Categories</a>
+                    by Denis-Charles Cisinski, Jakob Maximilian Cnossen, et al.
+                </li>
+                <li>
+                    <strong>Derived Seminar:</strong> A seminar following the book
+                    <a href="https://people.mpim-bonn.mpg.de/gaitsgde/Book/" target="_blank" rel="noopener noreferrer">A Study in Derived Algebraic Geometry</a>
+                    by Dennis Gaitsgory and Nick Rozenblyum.
+                </li>
             </ul>
-        </section>
+             </section>
 
         <section id="writings">
             <h2>Writings</h2>
-            
-            <div class="thesis-entry"> 
+
+            <div class="thesis-entry">
                 <p class="thesis-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
                 <div id="master-abstract" class="abstract-content">
@@ -269,7 +280,7 @@
         </section>
 
         <footer>
-            <p>© 2025 Alexander Zahrer</p>
+             <p>© 2025 Alexander Zahrer</p>
         </footer>
     </div>
 </body>

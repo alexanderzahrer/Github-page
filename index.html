@@ -67,7 +67,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Paper Style */
+        /* Paper Style (kept for potential other uses, but removed from theses) */
         .paper {
             background-color: #fff;
             padding: 1.5rem;
@@ -76,11 +76,22 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .paper-title {
+        .paper-title { /* Renamed for clarity, though not strictly necessary */
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
+
+        /* Style for thesis entries now that .paper is removed */
+        .thesis-entry {
+             margin-bottom: 1.5rem; /* Added spacing between entries */
+        }
+        .thesis-title { /* Replaced .paper-title specific to theses */
+             font-size: 1.2rem;
+             font-weight: bold;
+             margin-bottom: 0.5rem;
+        }
+
 
         /* Abstract Toggle */
         .abstract-toggle {
@@ -99,7 +110,7 @@
         }
 
         .abstract-content {
-            display: none;
+            display: none; /* Initially hidden */
             margin-top: 0.5rem;
             padding: 0.5rem;
             background-color: #fafafa;
@@ -183,9 +194,15 @@
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <script>
+        // Updated function to fix the double-click issue
         function toggleAbstract(id) {
             var abstract = document.getElementById(id);
-            abstract.style.display = abstract.style.display === "none" ? "block" : "none";
+            // If it's currently 'block', hide it. Otherwise (it's 'none' or unset by CSS), show it.
+            if (abstract.style.display === "block") {
+                abstract.style.display = "none";
+            } else {
+                abstract.style.display = "block";
+            }
         }
     </script>
 </head>
@@ -195,6 +212,7 @@
     <div id="background-video">
         <video autoplay muted loop>
             <source src="mountain-loop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
             </video>
     </div>
     <div id="video-overlay"></div>
@@ -228,25 +246,24 @@
 
         <section id="writings">
             <h2>Writings</h2>
-            <div class="paper">
-                <p class="paper-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
+            
+            <div class="thesis-entry"> 
+                <p class="thesis-title">Master Thesis: Smooth Functorial Field Theory and the Geometric Cobordism Hypothesis</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('master-abstract')">Show More</button>
                 <div id="master-abstract" class="abstract-content">
                     <p>This thesis used higher category theory to study quantum field theories via smooth bordism
                         categories endowed with geometric data (e.g. Riemannian metrics).</p>
                 </div>
-                <p><a href="#">[PDF]</a></p>
-            </div>
+                </div>
 
-            <div class="paper">
-                <p class="paper-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
+            <div class="thesis-entry">
+                <p class="thesis-title">Bachelor Thesis: Aspects of the theory of $C^{*}$-operator algebras</p>
                 <button class="abstract-toggle" onclick="toggleAbstract('bachelor-abstract')">Show More</button>
                 <div id="bachelor-abstract" class="abstract-content">
                     <p>This thesis delved into the theory of Banach and $C^{*}$ -algebras, including the Gel'fand
                         transform and GNS construction, to ultimately prove the two Gel'fand-Naimark theorems.</p>
                 </div>
-                <p><a href="#">[PDF]</a></p>
-            </div>
+                </div>
 
             <p><a href="writings.html">More Writings</a></p>
         </section>

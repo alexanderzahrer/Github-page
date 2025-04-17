@@ -91,6 +91,26 @@
             object-fit: cover;
         }
 
+        /* Fallback image for devices where video doesn't autoplay */
+        .header-fallback-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            display: none;
+        }
+
+        .video-not-playing .header-fallback-img {
+            display: block;
+        }
+
+        .video-not-playing video {
+            opacity: 0;
+        }
+
         .header-overlay {
             position: absolute;
             top: 0;
@@ -298,16 +318,87 @@
                 toggleButton.textContent = "See Less";
             }
         }
+        
+        // Function to handle video autoplay issues
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('header video');
+            const headerContainer = document.querySelector('.header-video');
+            
+            // Check if the video can play
+            if (video) {
+                // For iOS compatibility
+                video.setAttribute('playsinline', '');
+                video.setAttribute('webkit-playsinline', '');
+                
+                // Try to play the video programmatically
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Autoplay started
+                        console.log("Video autoplay successful");
+                    })
+                    .catch(error => {
+                        // Autoplay failed - add class to show fallback image
+                        console.log("Video autoplay failed", error);
+                        headerContainer.classList.add('video-not-playing');
+                        
+                        // Add a play button overlay for manual play
+                        const playButton = document.createElement('button');
+                        playButton.innerHTML = '<i class="fas fa-play"></i>';
+                        playButton.className = 'video-play-button';
+                        playButton.style.cssText = `
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 2;
+                            background: rgba(0,0,0,0.5);
+                            color: white;
+                            border: none;
+                            border-radius: 50%;
+                            width: 60px;
+                            height: 60px;
+                            font-size: 24px;
+                            cursor: pointer;
+                        `;
+                        
+                        headerContainer.appendChild(playButton);
+                        
+                        // Add event listener to the play button
+                        playButton.addEventListener('click', function() {
+                            video.play();
+                            headerContainer.classList.remove('video-not-playing');
+                            playButton.style.display = 'none';
+                        });
+                        
+                        // Listen for user interaction to try autoplay again
+                        document.addEventListener('touchstart', function userInteraction() {
+                            video.play().then(() => {
+                                headerContainer.classList.remove('video-not-playing');
+                                if (playButton) playButton.style.display = 'none';
+                                document.removeEventListener('touchstart', userInteraction);
+                            }).catch(e => {
+                                // Still can't play, keep the button
+                                console.log("Still can't autoplay after user interaction", e);
+                            });
+                        }, {once: true});
+                    });
+                }
+            }
+        });
     </script>
 </head>
 
 <body>
     <header>
         <div class="header-video">
-            <video autoplay muted loop>
+            <video autoplay muted loop playsinline webkit-playsinline>
                 <source src="vienna (1) (1).mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <!-- Fallback image - use a screenshot from your video -->
+            <img src="vienna-screenshot.jpg" alt="Vienna backdrop" class="header-fallback-img">
         </div>
         <div class="header-overlay"></div>
     </header>
@@ -332,26 +423,27 @@
                         </ul>
                     </div>
                     <div class="profile-picture-container">
-    <img src="alex.png" alt="Alexander Zahrer" class="profile-picture">
-</div>
+                        <img src="alex.png" alt="Alexander Zahrer" class="profile-picture">
+                    </div>
+                </div>
 
-<style>
-    .profile-picture-container {
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-        border-radius: 50%;
-    }
+                <style>
+                    .profile-picture-container {
+                        width: 150px;
+                        height: 150px;
+                        overflow: hidden;
+                        border-radius: 50%;
+                    }
 
-    .profile-picture {
-        width: 100%;
-        height: auto; /* Changed from 100% to auto */
-        object-fit: cover;
-        object-position: 50% 40%; /* Adjusted to better center on your face */
-        transform: scale(1); /* Makes the image slightly larger */
-        transform-origin: center 40%; /* Sets the origin point for scaling */
-    }
-</style>
+                    .profile-picture {
+                        width: 100%;
+                        height: auto; /* Changed from 100% to auto */
+                        object-fit: cover;
+                        object-position: 50% 40%; /* Adjusted to better center on your face */
+                        transform: scale(1); /* Makes the image slightly larger */
+                        transform-origin: center 40%; /* Sets the origin point for scaling */
+                    }
+                </style>
             </section>
 
             <h2>Seminars</h2>
